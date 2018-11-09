@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>vFORUM Archive</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="/static/img/favicon.png" rel="icon">
+  <link href="/static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Raleway:400,300,700,900" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="/static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="/static/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Template Name: Bolt
+    Template URL: https://templatemag.com/bolt-bootstrap-agency-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
+</head>
+
+<body data-spy="scroll" data-offset="80" data-target="#thenavbar">
+
+  <!-- Fixed navbar -->
+  <div id="thenavbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="#"><i class="fa fa-bolt"></i></a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#hello" class="smoothscroll">Home</a></li>
+          <li><a href="#green" class="smoothscroll">About</a></li>
+          <li><a href="#portfolio" class="smoothscroll">Archive</a></li>
+          <li><a href="#comment" class="smoothscroll">Comment</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+
+  <div id="hello">
+  　<div id="layerTransparent">
+    <div id="helloPosition">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 centered">
+          <h1>vFORUM Archive</h1>
+          <h2>過去のvFORUMに関する情報を提供しています</h2>
+        </div>
+        <!-- /col-lg-8 -->
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+    </div>
+    </div>
+  </div>
+  <!-- /hello -->
+
+  <div id="green">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 centered">
+          <img src="/static/img/iphone.png" alt="">
+        </div>
+
+        <div class="col-lg-7 centered">
+          <h3>ここで見られるもの</h3>
+          <p>過去のvFORUMのニュースリリースを見ることができます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="portfolio"></div>
+  <div class="container">
+    <div class="row centered mt grid">
+      <h3>過去のvFORUM</h3>
+      <div class="mt"></div>
+      <div class="col-lg-4">
+        <a href="#"><img src="/static/img/2013.png" alt="" width="300" height="300"></a>
+      </div>
+      <div class="col-lg-4">
+        <a href="#"><img src="/static/img/2014.png" alt="" width="300" height="300"></a>
+      </div>
+      <div class="col-lg-4">
+        <a href="#"><img src="/static/img/2015.png" alt="" width="300" height="300"></a>
+      </div>
+    </div>
+
+    <div class="row centered mt grid">
+      <div class="mt"></div>
+      <div class="col-lg-4">
+        <a href="#"><img src="/static/img/2016.png" alt="" width="300" height="300"></a>
+      </div>
+      <div class="col-lg-4">
+        <a href="https://news.mynavi.jp/article/20171101-vforum2017/" target="_blank"><img src="/static/img/2017.png" alt="" width="300" height="300"></a>
+      </div>
+      <div class="col-lg-4">
+        <a href="#"><img src="/static/img/x.png" alt="" width="300" height="300"></a>
+      </div>
+    </div>
+  </div>
+
+  <div id="comment"></div>
+  <div class="container">
+    <div class="row centered mt grid">
+      <h3>コメントをお願いします</h3>
+      <div class="mt"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <form action = "{{url_for("add_comment")}}" method = "POST">
+          <input class="form-control" name = "Name" placeholder="お名前" required><br>
+          <textarea class="form-control" name = "Comment" placeholder="こちらにコメントをご記入ください" required></textarea><br>
+          <button type="submit" class="btn btn-theme btn-lg">送信</button>
+        </form>
+      </div>
+    </div>
+
+
+  <div class="container">
+    <div class="row centered mt grid">
+      <h3>過去のコメント</h3>
+        <div class="mt"></div>
+      </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <table id="comment" style="width:100%">
+          {% if result %}
+          <tr>
+            <th>コメント日時</th>
+            <th>お名前</th>
+            <th>コメント</th>
+          </tr>
+          {% for row in result %}
+          <tr>
+            <td width="25%"> {{ row.submit_date }}</td>
+            <td width="15%"> {{ row.name }}</td>
+            <td> {{ row.comment }}</td>
+          </tr>
+          {% endfor %}
+          {% endif %}
+          </table>
+        </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <div id="copyrights">
+    <div class="container">
+      <p>
+        &copy; Copyrights <strong>Bolt</strong>. All Rights Reserved
+      </p>
+      <div class="credits">
+        <!--
+          You are NOT allowed to delete the credit link to TemplateMag with free version.
+          You can delete the credit link only if you bought the pro version.
+          Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/bolt-bootstrap-agency-template/
+          Licensing information: https://templatemag.com/license/
+        -->
+        Created with Bolt template by <a href="https://templatemag.com/">TemplateMag</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="/static/lib/jquery/jquery.min.js"></script>
+  <script src="/static/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/static/lib/easing/easing.min.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="/static/js/main.js"></script>
+
+</body>
+</html>
