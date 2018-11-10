@@ -33,7 +33,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: cskvm/vflask:v4
+      - image: cskvm/vflask:v5
         imagePullPolicy: Always
         name: vforum
         ports:
