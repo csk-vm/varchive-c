@@ -34,7 +34,7 @@ spec:
       containers:
       - image: cskvm/vflask:v5
         imagePullPolicy: Always
-        name: vforum
+        name: vforum5
         ports:
         - containerPort: 80
           name: vforum
