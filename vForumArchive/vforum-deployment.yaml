@@ -19,6 +19,7 @@ metadata:
   labels:
     app: vforum
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: vforum
@@ -32,7 +33,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: cskvm/vflask:v5
+      - image: cskvm/vflask:v3
         imagePullPolicy: Always
         name: vforum
         ports:
